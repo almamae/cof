@@ -7,8 +7,59 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+      <!-- Static navbar -->
+      <div class="navbar ">
+          
+        <div class="navbar-inner">
+           
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+          <a class="brand" href="/"><%= image_tag"logo2.jpg"%></a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><%= form_tag do %>
+                  <fieldset class="formsign-in"><div class="input-block-level"><%= text_field_tag :name, params[:name] %><a href="#"> <%= image_tag "searchicon.gif"%></a></div></fieldset>
+                <% end %>
+            </li>
+                <li><a href="/">Home</a></li>
+                <li><%= link_to "About", about_path %></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+              <ul class="nav pull-right">
+               
+                  <% if(current_user) %>
+                   <li><a href="#">Hi,<%= current_user.email %></a> </li> 
+                   <li> <%= link_to "Logout", logout_path, method: :delete %></li>
+                  <% else %>
+                                    <li>                  <%= link_to "Login", login_path %> 
+                </li>
+                <li>
+                    <%= link_to "Sign-up", sign_up_path %>
+                </li>
+                  <% end %>
+              </ul>
 
-<%= yield %>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+    </div>
+        <div class="flash">
+        <% flash.each do |key, value| %>
+          <p><%= value %></p>
+         <% end %>
+         </div>
+     <div id="slider-holder" class="clearfix">
+        
+      <%= yield %>
+      <%= render :partial => "sharednav/sidebar" %>
+    </div>
+   	<footer>
+  	</footer>
+     
 
-</body>
+	</body>
 </html>

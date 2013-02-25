@@ -1,0 +1,45 @@
+<div class=" home-slider">
+
+
+    <%= form_for @user do |f| %>
+      <fieldset class="form-signin">
+      <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h4>Form is invalid</h4>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+        <% if flash[:alert] %>
+          <p id="notice"><%= flash[:alert] %></p>
+        <% end %>
+
+        <h2 class="form-signin-heading">Sign Up</h2>
+
+        <div class="input-block-level">
+          <%= f.label :email,  'Email' %>
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="input-block-level">
+          <%= f.label :password, 'Password:' %>
+          <%= f.password_field :password %>
+        </div>
+
+        <div class="input-block-level">
+          <%= f.label :password_confirmation, 'Confirm Password:' %>
+          <%= f.password_field :password_confirmation %>
+        </div>
+        <div class="button">
+            <%= f.submit "Sign up" %>
+        </div>
+      <div>
+     </div>
+      </fieldset>
+
+    <% end %>
+
+  </div>

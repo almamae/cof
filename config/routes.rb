@@ -1,6 +1,37 @@
 COF::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  get 'sign_up'=>'users#new'
+  
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  
+  get 'about' => 'pages#about'
+  get 'profile' => 'pages#profile'
+
+  resources :users 
+ 
+  controller :posts do
+    put 'posts/:id/approve' => :approve
+    get 'dessert' => :dessert
+    get 'dish' => :dish
+    get 'pastry' => :pastry
+    get 'appetizer' => :appetizer
+  end
+
+  get 'myposts' => 'posts#myposts'
+  
+  resources :posts do
+    member do
+      get 'like'
+    end
+  end
+
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -49,10 +80,11 @@ COF::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  root to: 'sharednav#index', as: 'home'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-end
+  end

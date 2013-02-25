@@ -1,0 +1,2 @@
+module SharednavHelper
+end

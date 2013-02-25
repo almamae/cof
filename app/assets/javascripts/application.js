@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+// $(function(){
+// 	$(" #post .pagination a").live("click", function() {
+//     $.getScript(this.href);
+//     return false;
+//   });
+// });

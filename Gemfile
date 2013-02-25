@@ -24,9 +24,9 @@ gem 'jquery-rails'
 gem 'will_paginate', '~>3.0'
 gem 'jquery-star-rating-rails'
 # To use ActiveModel has_secure_password
- gem 'bcrypt-ruby', '~> 3.0.0'
-
+ gem 'bcrypt-ruby', :require => 'bcrypt'
 # To use Jbuilder templates for JSON
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 # gem 'jbuilder'
 
 # Use unicorn as the web server

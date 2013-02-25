@@ -1,0 +1,33 @@
+<div class=" home-slider">
+
+  <div class="container">
+
+    <%= form_tag do %>
+      <fieldset class="form-signin">
+        <% if flash[:alert] %>
+          <p id="notice"><%= flash[:alert] %></p>
+        <% end %>
+        <h2 class="form-signin-heading">Please Log In</h2>
+
+        <div class="input-block-level">
+          <%= label_tag :email, 'Email:' %>
+          <%= text_field_tag :email, params[:email] %>
+        </div>
+
+        <div class="input-block-level">
+          <%= label_tag :password, 'Password:' %>
+          <%= password_field_tag :password, params[:password] %>
+        </div>
+   
+        <div class="btn btn-large btn-primary">
+          <%= submit_tag "Login" %>
+        </div>
+      <div>
+       <%= link_to "Don't have an account?",sign_up_path%>
+     </div>
+      </fieldset>
+
+    <% end %>
+
+  </div>
+</div>
